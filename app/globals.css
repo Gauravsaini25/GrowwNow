@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+
+:root {
+  --background: #ffffff;
+  --foreground: #111827; /* dark gray text */
+  --card-bg: #f9fafb;
+  --border-color: #e5e7eb;
+  --muted: #6b7280;
+}
+
+
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: var(--primary-hover);
+}
