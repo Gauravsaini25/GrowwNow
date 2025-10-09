@@ -1,31 +1,23 @@
+// components/MentorSidebar.js
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import {
-  HomeIcon,
-  ClipboardIcon,
-  UsersIcon,
-  BarChart3Icon,
-  LogOutIcon,
-  TargetIcon,
-} from "lucide-react";
+import { HomeIcon, UsersIcon, CalendarIcon, LogOutIcon, BarChart3Icon } from "lucide-react";
 
-const LINKS = [
-  { href: "/protected/dashboard", label: "Dashboard", icon: HomeIcon },
-  { href: "/protected/report", label: "Reports", icon: BarChart3Icon },
-  { href: "/protected/mentor", label: "Mentors", icon: UsersIcon },
-  { href: "/protected/planner", label: "Roadmap", icon: TargetIcon }
-];
-
-export default function Sidebar() {
+export default function MentorSidebar() {
   const pathname = usePathname();
 
-  return (
-    <aside className="w-64 bg-gradient-to-b from-indigo-700 to-indigo-800 text-white flex flex-col p-4 max-h-[729px] shadow-lg sticky top-0">
-      {/* Brand */}
-      <h2 className="text-3xl font-bold mb-8 text-center tracking-wide">GrowwNow</h2>
+  const LINKS = [
+    { href: "/mentor/protected/dashboard", label: "Dashboard", icon: HomeIcon },
+    { href: "/mentor/protected/mentee", label: "Mentee", icon: UsersIcon },
+    { href: "/mentor/protected/sessions", label: "Sessions", icon: CalendarIcon },
+    { href: "/mentor/protected/reports", label: "Reports", icon: BarChart3Icon }
+  ];
 
-      {/* Navigation */}
+  return (
+    <aside className="w-64 bg-gradient-to-b from-indigo-700 to-indigo-800 text-white flex flex-col p-4 max-h-[100vh] sticky top-0 shadow-lg">
+      <h2 className="text-3xl font-bold mb-8 text-center tracking-wide">GrowwNow — Mentor</h2>
+
       <nav className="flex-1 flex flex-col space-y-2">
         {LINKS.map(({ href, label, icon: Icon }) => {
           const isActive = pathname === href;
@@ -43,14 +35,12 @@ export default function Sidebar() {
         })}
       </nav>
 
-      {/* Separator */}
       <div className="border-t border-indigo-500 my-4"></div>
 
-      {/* Logout */}
       <button
         onClick={() => {
-          localStorage.removeItem("employee");
-          window.location.href = "/login";
+          localStorage.removeItem("mentor");
+          window.location.href = "/mentor/login";
         }}
         className="flex items-center space-x-3 px-4 py-2 rounded-lg bg-red-500 hover:bg-red-600 hover:scale-105 transition transform shadow-md"
       >

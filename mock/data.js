@@ -1,11 +1,11 @@
-export const ROLES = [{ id: 101, name: "Manager", skills: { Leadership: 80, Strategy: 75, Communication: 85, Technical: 65, }, }, { id: 102, name: "Team Lead", skills: { Leadership: 70, Strategy: 70, Communication: 80, Technical: 70, }, }, { id: 103, name: "Engineer", skills: { Leadership: 60, Strategy: 60, Communication: 75, Technical: 85, }, },];
+export const ROLES = [{ id: 101, name: "Manager", skills: { Leadership: 80, Strategy: 75, Communication: 85, Technical: 65,"Problem Solving":90 } }, { id: 102, name: "Team Lead", skills: { Leadership: 70, Strategy: 70, Communication: 80, Technical: 70,"Problem Solving":90 } }, { id: 103, name: "Engineer", skills: { Leadership: 60, Strategy: 60, Communication: 75, Technical: 85,"Problem Solving":90 } }];
 export const MENTORS = [
   {
     id: 201,
     name: "Anil Kumar",
     role: "Senior Manager",
     available: "Wed 3–5 PM",
-    image: "https://randomuser.me/api/portraits/men/32.jpg",
+    image: "https://randomuser.me/api/portraits/men/45.jpg",
     rating: 5,
     experience: "12 years",
     bio: "Expert in leadership, corporate strategy, and guiding future managers.",

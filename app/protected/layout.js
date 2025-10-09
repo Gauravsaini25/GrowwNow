@@ -1,7 +1,6 @@
 // app/(protected)/layout.js
 "use client";
 import Sidebar from "@/components/Sidebar";
-
 export default function ProtectedLayout({ children }) {
   return (
     <div className="flex min-h-screen">

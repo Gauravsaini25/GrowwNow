@@ -12,6 +12,11 @@ import {
   ResponsiveContainer,
   LineChart,
   Line,
+  RadarChart,
+  PolarGrid,
+  PolarAngleAxis,
+  PolarRadiusAxis,
+  Radar,
 } from "recharts";
 
 export default function ReportsPage() {
@@ -19,31 +24,26 @@ export default function ReportsPage() {
 
   useEffect(() => {
     // Simulated employee progress data
-    const storedEmployee = JSON.parse(localStorage.getItem("employee") || "{}");
     const mockProgress = {
-      gapsClosed: 40,
-      activitiesDone: 5,
-      nextMilestone: "Leadership Training Completion",
+      summary: {
+        totalHours: 63,
+        gapsClosed: 40,
+        completedCourses: 5,
+        improvementPercent: 32,
+      },
       skills: [
         { name: "Communication", progress: 80 },
         { name: "Teamwork", progress: 65 },
         { name: "Leadership", progress: 50 },
         { name: "Problem Solving", progress: 70 },
+        { name: "Technical", progress: 60 },
       ],
       activityTimeline: [
         { month: "Jan", hours: 10 },
         { month: "Feb", hours: 15 },
         { month: "Mar", hours: 20 },
         { month: "Apr", hours: 18 },
-      ],
-      recommendations: [
-        "Enroll in Advanced Leadership Module",
-        "Complete 2 more collaborative projects",
-        "Focus on public speaking practice",
-      ],
-      milestones: [
-        { title: "Complete Leadership Module", due: "15th Oct 2025" },
-        { title: "Presentation Assessment", due: "28th Oct 2025" },
+        { month: "May", hours: 25 },
       ],
     };
     setProgress(mockProgress);
@@ -63,17 +63,17 @@ export default function ReportsPage() {
         <div className="flex-1 flex flex-col">
           <Header />
           <main className="p-6 grid gap-6">
-            {/* High level summary */}
+            {/* Overall Summary */}
             <ReportCard progress={progress} />
 
-            {/* Skill Breakdown */}
+            {/* Skill Improvement Breakdown */}
             <Card className="shadow-md rounded-2xl">
               <CardHeader>
                 <CardTitle>Skill Improvement Breakdown</CardTitle>
               </CardHeader>
               <CardContent className="h-64">
                 <ResponsiveContainer width="100%" height="100%">
-                  <BarChart data={progress?.skills || []}>
+                  <BarChart data={progress.skills}>
                     <XAxis dataKey="name" />
                     <YAxis />
                     <Tooltip />
@@ -90,11 +90,11 @@ export default function ReportsPage() {
             {/* Learning Hours Timeline */}
             <Card className="shadow-md rounded-2xl">
               <CardHeader>
-                <CardTitle>Learning Hours (Monthly)</CardTitle>
+                <CardTitle>Learning Hours Over Time</CardTitle>
               </CardHeader>
               <CardContent className="h-64">
                 <ResponsiveContainer width="100%" height="100%">
-                  <LineChart data={progress?.activityTimeline || []}>
+                  <LineChart data={progress.activityTimeline}>
                     <XAxis dataKey="month" />
                     <YAxis />
                     <Tooltip />
@@ -109,34 +109,68 @@ export default function ReportsPage() {
               </CardContent>
             </Card>
 
-            {/* AI Recommendations */}
+            {/* Skill Distribution Radar */}
+            {/* Skill Distribution Radar */}
             <Card className="shadow-md rounded-2xl">
               <CardHeader>
-                <CardTitle>AI Recommendations</CardTitle>
+                <CardTitle>Skill Distribution Overview</CardTitle>
               </CardHeader>
-              <CardContent>
-                <ul className="list-disc list-inside space-y-2 text-gray-700">
-                  {(progress?.recommendations || []).map((rec, idx) => (
-                    <li key={idx}>{rec}</li>
-                  ))}
-                </ul>
+              <CardContent className="h-80">
+                <ResponsiveContainer width="100%" height="100%">
+                  <RadarChart
+                    data={progress.skills}
+                    cx="50%"
+                    cy="50%"
+                    outerRadius="70%"
+                  >
+                    <PolarGrid stroke="#E5E7EB" />
+                    <PolarAngleAxis
+                      dataKey="name"
+                      tick={{ fill: "#374151", fontSize: 12, fontWeight: 500 }}
+                    />
+                    <PolarRadiusAxis angle={30} domain={[0, 100]} tick={{ fill: "#9CA3AF" }} />
+
+                    {/* Tooltip enables hover values */}
+                    <Tooltip
+                      formatter={(value) => [`${value}%`, "Skill Level"]}
+                      contentStyle={{
+                        backgroundColor: "#fff",
+                        borderRadius: "10px",
+                        border: "1px solid #E5E7EB",
+                        boxShadow: "0 2px 6px rgba(0,0,0,0.1)",
+                      }}
+                    />
+
+                    <defs>
+                      <linearGradient id="radarGradient" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stopColor="#4F46E5" stopOpacity={0.9} />
+                        <stop offset="100%" stopColor="#818CF8" stopOpacity={0.3} />
+                      </linearGradient>
+                    </defs>
+
+                    <Radar
+                      name="Skill Level"
+                      dataKey="progress"
+                      stroke="#4F46E5"
+                      fill="url(#radarGradient)"
+                      fillOpacity={0.6}
+                      strokeWidth={2}
+                    />
+                  </RadarChart>
+                </ResponsiveContainer>
               </CardContent>
             </Card>
 
-            {/* Upcoming Milestones */}
+
+            {/* Insights Summary */}
             <Card className="shadow-md rounded-2xl">
               <CardHeader>
-                <CardTitle>Upcoming Milestones</CardTitle>
+                <CardTitle>Performance Insights</CardTitle>
               </CardHeader>
-              <CardContent>
-                <div className="space-y-4">
-                  {(progress?.milestones || []).map((m, idx) => (
-                    <div key={idx} className="flex justify-between border-b pb-2">
-                      <span className="font-medium">{m.title}</span>
-                      <span className="text-gray-500">{m.due}</span>
-                    </div>
-                  ))}
-                </div>
+              <CardContent className="grid gap-3 text-gray-700">
+                <p>📈 You’ve shown steady progress across all skills, with a strong upward trend in learning hours since February.</p>
+                <p>💪 “Problem Solving” and “Communication” are your strongest domains, indicating balanced analytical and interpersonal growth.</p>
+                <p>🎯 Focus area: Continue improving “Leadership” and “Technical” skills to achieve full proficiency alignment.</p>
               </CardContent>
             </Card>
           </main>
