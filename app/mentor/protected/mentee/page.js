@@ -68,7 +68,7 @@ export default function MenteePage() {
   return (
     <main className="min-h-screen bg-gray-50 p-6 space-y-6">
       {/* Header */}
-      <h1 className="text-3xl font-bold text-indigo-700 mb-4">
+      <h1 className="text-3xl font-bold text-teal-700 mb-4">
         Mentee Dashboard: {mentee.name}
       </h1>
 
@@ -93,9 +93,9 @@ export default function MenteePage() {
         </Card>
 
         {/* Feedback Card */}
-        <Card className="bg-gradient-to-br from-indigo-50 to-white rounded-2xl shadow-lg hover:shadow-2xl transition p-5">
+        <Card className="bg-gradient-to-br from-teal-50 to-white rounded-2xl shadow-lg hover:shadow-2xl transition p-5">
           <CardContent>
-            <h2 className="text-lg font-semibold text-indigo-700 mb-2">
+            <h2 className="text-lg font-semibold text-teal-700 mb-2">
               📝 Mentor Feedback
             </h2>
             <Textarea
@@ -103,7 +103,7 @@ export default function MenteePage() {
               onChange={(e) => setFeedback(e.target.value)}
               placeholder="Provide feedback or roadmap suggestions..."
             />
-            <Button className="mt-3 w-full bg-indigo-600 hover:bg-indigo-700 text-white" onClick={handleFeedbackSave}>
+            <Button className="mt-3 w-full bg-teal-600 hover:bg-teal-700 text-white" onClick={handleFeedbackSave}>
               Save Feedback
             </Button>
             {feedback && (
@@ -115,9 +115,9 @@ export default function MenteePage() {
         </Card>
 
         {/* Roadmap Card */}
-        <Card className="bg-gradient-to-br from-purple-50 to-white rounded-2xl shadow-lg hover:shadow-2xl transition p-5">
+        <Card className="bg-gradient-to-br from-teal-50 to-white rounded-2xl shadow-lg hover:shadow-2xl transition p-5">
           <CardContent>
-            <h2 className="text-lg font-semibold text-purple-700 mb-3">
+            <h2 className="text-lg font-semibold text-teal-700 mb-3">
               🛠 Roadmap
             </h2>
 

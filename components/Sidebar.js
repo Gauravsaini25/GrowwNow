@@ -23,7 +23,7 @@ export default function Sidebar() {
   return (
     <aside className="w-64 bg-gradient-to-b from-indigo-700 to-indigo-800 text-white flex flex-col p-4 max-h-[729px] shadow-lg sticky top-0">
       {/* Brand */}
-      <h2 className="text-3xl font-bold mb-8 text-center tracking-wide">GrowwNow</h2>
+      <h2 className="text-3xl font-extrabold mb-8 text-center tracking-wide">GrowwNow</h2>
 
       {/* Navigation */}
       <nav className="flex-1 flex flex-col space-y-2">

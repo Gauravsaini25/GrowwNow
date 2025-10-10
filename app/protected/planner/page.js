@@ -96,7 +96,7 @@ export default function Planner() {
               <div className="absolute left-1/2 top-0 w-1 bg-indigo-100 h-full -translate-x-1/2 rounded-full" />
 
               {/* Steps */}
-              <div className="flex flex-col items-center space-y-10 relative z-10">
+              <div className="flex flex-col items-center space-y-10 relative ">
                 {roadmap.map((step, index) => (
                   <motion.div
                     key={step.id}

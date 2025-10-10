@@ -49,7 +49,7 @@ export default function MentorHeader({ small = false }) {
         </div>
 
         {/* Profile */}
-        <Link href="/mentor/mentee">
+        <Link href="/mentor/protected/mentee">
           <img
             src={profile?.image || "https://randomuser.me/api/portraits/lego/1.jpg"}
             className="h-10 w-10 rounded-full cursor-pointer border"

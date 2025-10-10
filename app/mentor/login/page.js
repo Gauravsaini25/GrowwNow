@@ -78,9 +78,8 @@ export default function MentorLoginPage() {
         </form>
 
         <p className="mt-6 text-sm text-gray-600">
-          Back to{" "}
           <a href="/" className="text-teal-600 font-medium hover:underline">
-            Home
+            Back to Home
           </a>
         </p>
       </div>
