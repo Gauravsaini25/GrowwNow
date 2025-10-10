@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import Header from "@/components/Header";
 import ReportCard from "@/components/ReportCard";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { EMPLOYEES } from "@/mock/employees";
+import { MENTOR_ACCOUNTS } from "@/mock/mentors";
 import {
   BarChart,
   Bar,
@@ -21,22 +23,36 @@ import {
 
 export default function ReportsPage() {
   const [progress, setProgress] = useState(null);
+  const [mentee, setMentee] = useState(null);
 
   useEffect(() => {
     // Simulated employee progress data
+    // const raw = typeof window !== "undefined" ? localStorage.getItem("mentor") : null;
+    // const stored = raw ? JSON.parse(raw) : null;
+    // if (!stored) {
+    //   window.location.href = "/mentor/login";
+    //   return;
+    // }
+    // setMentor(stored);
+    // const acct = MENTOR_ACCOUNTS.find((m) => m.id === stored.id);
+    // const menteeObj = EMPLOYEES.find((e) => e.id === acct?.menteeId) || null;
+    // setMentee(menteeObj);
     const mockProgress = {
-      summary: {
-        totalHours: 63,
-        gapsClosed: 40,
-        completedCourses: 5,
-        improvementPercent: 32,
-      },
+      gapsClosed: 40,
+      completedCourses: 5,
+      activitiesDone: 5,
+      nextMilestone: "Leadership Training Completion",
       skills: [
-        { name: "Communication", progress: 80 },
-        { name: "Teamwork", progress: 65 },
-        { name: "Leadership", progress: 50 },
-        { name: "Problem Solving", progress: 70 },
-        { name: "Technical", progress: 60 },
+        { name: "Leadership", progress: 40 },
+        { name: "Strategy", progress: 50 },
+        { name: "Communication", progress: 60 },
+        { name: "Technical", progress: 70 },
+      ],
+      progress: [
+        { name: "Leadership", progress: 40 },
+        { name: "Strategy", progress: 50 },
+        { name: "Communication", progress: 60 },
+        { name: "Technical", progress: 70 },
       ],
       activityTimeline: [
         { month: "Jan", hours: 10 },
