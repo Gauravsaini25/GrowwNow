@@ -106,7 +106,7 @@ GrowwNow is built on the MERN stack, integrated with AI and Machine Learning com
 
 ###  Installation Steps
 
-#### 1️⃣ Clone the Repository
+#### Clone the Repository
 ```bash
 git clone https://github.com/Gauravsaini25/GrowwNow
 cd GrowwNow
