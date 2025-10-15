@@ -33,7 +33,7 @@ export default function LoginPage() {
     },
   };
       localStorage.setItem("employee", JSON.stringify(mockEmployee));
-      router.push("/protected/dashboard");
+      router.push("/form");
     } else {
       setError("Invalid credentials. Try riya@company.com / 123456");
     }
