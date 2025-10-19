@@ -104,7 +104,19 @@ GrowwNow is built on the MERN stack, integrated with AI and Machine Learning com
 
 ---
 
-###  Installation Steps
+# Prototype Images
+### Mentee Panel
+
+<img src="./public/mentee 1.jpg" width="400">
+<img src="./public/mentee 2.jpg" width="400"> 
+
+### Mentor Panel
+<img src="./public/mentor 1.jpg" width="400"> 
+
+### Admin Panel
+<img src="./public/admin 1.jpg" width="400"> 
+
+##  Installation Steps
 
 #### Clone the Repository
 ```bash
