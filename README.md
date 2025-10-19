@@ -38,21 +38,6 @@ The application guides employees from Diagnosis → Analysis → Action, ensurin
 
 ---
 
-## Technical Stack & Architecture
-
-GrowwNow is built on the MERN stack, integrated with AI and Machine Learning components to drive intelligent personalization.
-
-| Component | Technology | Role |
-|------------|-------------|------|
-| Frontend | React.js | Builds an interactive, responsive user interface with real-time data visualization |
-| Backend | Node.js (Express.js) | Handles API routing, business logic, and integration with AI microservices |
-| Database | MongoDB | Stores user profiles, skills, progress data, chat logs, and generated roadmaps |
-| Authentication | JWT (JSON Web Tokens) | Provides secure, stateless authentication and role-based access |
-| AI & Machine Learning | Python (FastAPI), Scikit-learn, TensorFlow, PyTorch | Powers AI models for skill-gap prediction, dynamic roadmap generation, and mentor matching |
-| Visualization | Chart.js | Renders Radar Graphs, Progress Charts, and Performance Analytics |
-
----
-
 ## Core Logic (AI-Powered Intelligence)
 
 ### Skill Gap Prediction Model
@@ -95,16 +80,7 @@ GrowwNow is built on the MERN stack, integrated with AI and Machine Learning com
 
 ---
 
-##  Getting Started (Local Setup)
-
-###  Prerequisites
-- **Node.js (v14+)**  
-- **MongoDB** instance (local or cloud-hosted)
-- **Python 3.8+** (for AI service)
-
----
-
-# Prototype Images
+## Prototype Images
 ### Mentee Panel
 
 <img src="./public/mentee 1.jpg" width="400">
@@ -116,7 +92,30 @@ GrowwNow is built on the MERN stack, integrated with AI and Machine Learning com
 ### Admin Panel
 <img src="./public/admin 1.jpg" width="400"> 
 
-##  Installation Steps
+## Technical Stack & Architecture
+
+GrowwNow is built on the MERN stack, integrated with AI and Machine Learning components to drive intelligent personalization.
+
+| Component | Technology | Role |
+|------------|-------------|------|
+| Frontend | React.js | Builds an interactive, responsive user interface with real-time data visualization |
+| Backend | Node.js (Express.js) | Handles API routing, business logic, and integration with AI microservices |
+| Database | MongoDB | Stores user profiles, skills, progress data, chat logs, and generated roadmaps |
+| Authentication | JWT (JSON Web Tokens) | Provides secure, stateless authentication and role-based access |
+| AI & Machine Learning | Python (FastAPI), Scikit-learn, TensorFlow, PyTorch | Powers AI models for skill-gap prediction, dynamic roadmap generation, and mentor matching |
+| Visualization | Chart.js | Renders Radar Graphs, Progress Charts, and Performance Analytics |
+
+---
+##  Getting Started (Local Setup)
+
+###  Prerequisites
+- **Node.js (v14+)**  
+- **MongoDB** instance (local or cloud-hosted)
+- **Python 3.8+** (for AI service)
+
+---
+
+###  Installation Steps
 
 #### Clone the Repository
 ```bash
